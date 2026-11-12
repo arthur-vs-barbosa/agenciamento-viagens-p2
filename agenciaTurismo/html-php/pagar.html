@@ -21,16 +21,30 @@
                 <a href="relatorios.html">Relatórios</a>
             </div>
             <div class="meioForm">
-                <div class="cadastrar">
-                    <h1>Realizar Pagamentos</h1>
-                    <form method="post">
-                        <h3>-</h3>
-                        <input type="text" name="-">
-                        <h3>-</h3>
-                        <input type="number" name="-">
-                        <button type="submit">Cadastrar</button>
+                <h1>Realizar Pagamentos</h1>
+                    <form method="post" class="cadastrar">
+                        <div class="organForm">
+                            <label>Reserva</label>
+                            <input type="number" name="idReserva"> 
+                        </div>
+                        <div class="organForm">
+                            <label>Valor</label>
+                            <input type="number" name="valor">
+                        </div>
+                        <div class="organForm">
+                            <label>Forma de Pagamento</label>
+                            <input type="text" name="formaPagar">
+                        </div>
+                        <div class="organForm">
+                            <label>Status do Pagamento</label>
+                            <input type="text" name="statusPagar">
+                        </div>
+                        <div class="organForm">
+                            <label>Data do Pagamento</label>
+                            <input type="date" name="dataPagar">
+                        </div>
+                        <button type="submit">Salvar</button>
                     </form>
-                </div>
                 <hr>
             </div>
         </div>

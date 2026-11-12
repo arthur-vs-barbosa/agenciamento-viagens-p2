@@ -21,20 +21,26 @@
                 <a href="relatorios.html">Relatórios</a>
             </div>
             <div class="meioForm">
-                <div class="cadastrar">
                     <h1>Cadastrar Cliente</h1>
-                    <form method="post">
-                        <h3>Nome</h3>
-                        <input type="text" name="nome">
-                        <h3>CPF</h3>
-                        <input type="number" name="cpf">
-                        <h3>Email</h3>
-                        <input type="text" name="cpf">
-                        <h3>Celular</h3>
-                        <input type="number" name="cpf">
+                    <form method="post" class="cadastrar">
+                        <div class="organForm">
+                            <label>Nome</label>
+                            <input type="text" name="nome">
+                        </div>
+                        <div class="organForm">
+                            <label>CPF</label>
+                            <input type="number" name="cpf">
+                        </div>
+                        <div class="organForm">
+                            <label>Email</label>
+                            <input type="email" name="email">
+                        </div>
+                        <div class="organForm">
+                            <label>Celular</label>
+                            <input type="tel" name="celular">
+                        </div>
                         <button type="submit">Cadastrar</button>
                     </form>
-                </div>
                 <hr>
                 <div class="gerenciar">
                     <h1>Lista de Clientes</h1>
