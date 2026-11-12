@@ -1,0 +1,46 @@
+.meioForm{
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    margin: 30px 100px;
+    flex: 1;
+    padding: 20px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+.cadastrar{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    padding: 5px 20px 50px;
+}
+.cadastrar h3,input{
+    float: left;
+    margin: 10px 70px;
+    color: #292929;
+}
+.cadastrar input{
+    height: 40px;
+    width: 330px;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+    background: #fcfcfc;
+}
+.cadastrar button{
+    float: right;
+    height: 40px;
+    width: 110px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-right: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
+    color: #ffffff;
+    background: #3cc4b2;
+}
+hr{
+    border: 1px solid #dfdfdf;
+    margin-top: 15%;
+    margin-bottom: 15px;
+}
