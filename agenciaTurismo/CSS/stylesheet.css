@@ -10,17 +10,20 @@ body{background: #f8f8f8;}
 
 p{color: #aaaaaa;}
 
+
 #main{
     display: flex;
     gap: 50px;
 }
 /*Rodapé*/
 .rodape{
-    text-align: center;
+    display: flex;
+    justify-content: center;
     font-size: 13px;
     padding: 20px;
     background: #5c5c5c;
 }
+
 /*Lateral*/
 .lado{
     margin: 0;
@@ -36,15 +39,29 @@ p{color: #aaaaaa;}
     padding-bottom: 50px;
     color: #3cc4b2;
 }
+.lado img{padding-left: 10px;}
 .lado a{
-    padding-left: 10px;
+    padding-left: 5px;
     color: #292929;
 }
 /*Meio com info geral*/
 .meio{
     flex: 1;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+}
+.meio hr{
+    border: 1px solid #dfdfdf;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: -45px;
+    width: 113%;
+}
+
+.clientes a,.viagens a,.pacotesTurist a,.reservas a,.pagamento a,.relatorios a{
+    float: right;
+    margin-right: -30px;
+    color: #3cc4b2;
 }
 
 .meio h1,.meio h3{text-align: center;}
@@ -52,10 +69,31 @@ p{color: #aaaaaa;}
 
 .clientes,.viagens,.pacotesTurist,.reservas,.pagamento,.relatorios{
     display: inline-block;
-    padding: 20px 80px;
+    padding: 20px 60px;
     margin: 25px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background: #ffffff;
+}
+.viagens h2, p, .reservas h2, p, .clientes h2, p, .pagamento h2, p, .relatorios h2, p{
+    text-align: left;
+}
+.clientes,.pagamento,.relatorios{
+    width: 30%;
+}
+.clientes img,.pagamento img,.relatorios img{
+    float: left;
+    height: 15%;
+    width: 15%;
+    margin-left: -25px;
+    margin-right: 35px;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #c6f3ec;
+}
+.viagens,.reservas{
+    height: 55%;
+    width: 46%;
 }

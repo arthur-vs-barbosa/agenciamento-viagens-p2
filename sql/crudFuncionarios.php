@@ -1,4 +1,5 @@
 <?php
+    //desconsiderar por agora
     include "conexao.php";
 
     // 1. CRIAR FUNCIONÁRIO

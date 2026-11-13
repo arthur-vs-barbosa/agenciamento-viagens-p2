@@ -12,28 +12,43 @@
             <!--Lateral do site-->
             <div class="lado">
                 <h3>Agência de Turismo</h3>
-                <a href="main.html">Menu</a><br><br>
-                <a href="cliente.html">Clientes</a><br><br>
-                <a href="viagem.html">Viagens</a><br><br>
-                <a href="pacotes.html">Pacotes</a><br><br>
-                <a href="reserva.html">Reservas</a><br><br>
-                <a href="pagar.html">Pagamentos</a><br><br>
-                <a href="relatorios.html">Relatórios</a>
+                <img src="../Icones/grid-fill.svg" alt="grid"><a href="main.html">Menu</a><br><br>
+                <img src="../Icones/person-fill.svg" alt="person"><a href="cliente.html">Clientes</a><br><br>
+                <img src="../Icones/airplane-fill.svg" alt="airplane"><a href="viagem.html">Viagens</a><br><br>
+                <img src="../Icones/suitcase2-fill.svg" alt="suitcase"><a href="pacotes.html">Pacotes</a><br><br>
+                <img src="../Icones/calendar-check.svg" alt="calendar"><a href="reserva.html">Reservas</a><br><br>
+                <img src="../Icones/currency-dollar.svg" alt="money"><a href="pagar.html">Pagamentos</a><br><br>
+                <img src="../Icones/clipboard-fill.svg" alt="clipboard"><a href="relatorios.html">Relatórios</a>'
             </div>
             <div class="meioForm">
                 <h1>Organizar Viagem</h1>
-                    <form method="post" class="cadastrar">
-                        <div class="organForm">
-                            <label>-</label>
-                            <input type="text" name="-">
-                        </div>
-                        <div class="organForm">
-                            <label>-</label>
-                            <input type="number" name="-">
-                        </div>
-                        <button type="submit">Cadastrar</button>
-                    </form>
+                <form method="post" class="cadastrar">
+                    <div class="organForm">
+                        <label>Destino</label>
+                        <input type="text" name="destino">
+                    </div>
+                    <div class="organForm">
+                        <label>Ida</label>
+                        <input type="date" name="dataIda">
+                    </div>
+                    <div class="organForm">
+                        <label>Volta</label>
+                        <input type="date" name="dataVolta">
+                    </div>
+                    <div class="organForm">
+                        <label>Preço Base</label>
+                        <input type="number" name="precoBase">
+                    </div>
+                    <div class="organForm">
+                        <label>Vagas</label>
+                        <input type="number" name="vagas">
+                    </div>
+                    <button type="submit">Salvar</button>
+                </form>
                 <hr>
+                <div class="gerenciar">
+                    <h1>Viagens Marcadas</h1>
+                </div>
             </div>
         </div>
         <!--Rodapé-->

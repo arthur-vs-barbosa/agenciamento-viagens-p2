@@ -1,0 +1,32 @@
+.meioRelatorio{
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    margin: 30px 100px;
+    flex: 1;
+    padding: 20px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    padding: 5px 20px 50px;
+}
+.tabelaRelatorio{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+.tabelaRelatorio td{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    background: #fcfcfc
+}
+.tabelaRelatorio th{
+    text-align: center;
+    padding: 10px 0px;
+    color: #ffffff;
+    background: #3cc4b2;
+}
