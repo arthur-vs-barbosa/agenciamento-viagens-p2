@@ -21,10 +21,34 @@
                 <img src="../Icones/clipboard-fill.svg" alt="clipboard"><a href="relatorios.html">Relatórios</a>
             </div>
             <div class="meioForm">
-                <div class="cadastrar">
-                    <h1>Pacotes</h1>
-                </div>
+                <h1>Pacotes</h1>
+                <form method="post" class="cadastrar">
+                    <div class="organForm">
+                        <label>ID Viagem</label>
+                        <input type="number" name="idViagem">
+                    </div>
+                    <div class="organForm">
+                        <label>Nome</label>
+                        <input type="text" name="nomePacote">
+                    </div>
+                    <div class="organForm">
+                        <label>Descrição</label>
+                        <input type="text" name="desc">
+                    </div>
+                    <div class="organForm">
+                        <label>Preço</label>
+                        <input type="number" name="precoPacote">
+                    </div>
+                    <div class="organForm">
+                        <label>Beneficios</label>
+                        <input type="text" name="beneficios">
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
                 <hr>
+                <div class="gerenciar">
+                    <h1>Lista de Pacotes</h1>
+                </div>
             </div>
         </div>
         <!--Rodapé-->

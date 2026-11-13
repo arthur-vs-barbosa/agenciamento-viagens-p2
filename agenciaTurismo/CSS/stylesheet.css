@@ -76,10 +76,24 @@ p{color: #aaaaaa;}
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background: #ffffff;
 }
+.viagens h2, p, .reservas h2, p, .clientes h2, p, .pagamento h2, p, .relatorios h2, p{
+    text-align: left;
+}
+.clientes,.pagamento,.relatorios{
+    width: 30%;
+}
+.clientes img,.pagamento img,.relatorios img{
+    float: left;
+    height: 15%;
+    width: 15%;
+    margin-left: -25px;
+    margin-right: 35px;
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 10px;
+    background: #c6f3ec;
+}
 .viagens,.reservas{
     height: 55%;
     width: 46%;
-}
-.viagens h2, p, .reservas h2, p{
-    text-align: left;
 }
