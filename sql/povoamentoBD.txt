@@ -1,0 +1,74 @@
+-- Desativa temporariamente a verificação de chave estrangeira para inserção em lote
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- 1. Povoando a tabela 'viagem' (10 destinos)
+INSERT INTO `viagem` (`id`, `destino`, `dtIda`, `dtVolta`, `precoBase`, `vagas`) VALUES
+(1, 'Rio de Janeiro, RJ', '2026-12-10', '2026-12-17', 1500.00, 30),
+(2, 'Fernando de Noronha, PE', '2027-01-15', '2027-01-22', 4500.00, 15),
+(3, 'Gramado, RS', '2027-06-10', '2027-06-17', 2200.00, 20),
+(4, 'Salvador, BA', '2027-03-01', '2027-03-08', 2100.00, 25),
+(5, 'Bariloche, Argentina', '2027-07-12', '2027-07-19', 4800.00, 20),
+(6, 'Florianópolis, SC', '2027-02-10', '2027-02-17', 1600.00, 30),
+(7, 'Cancún, México', '2027-09-05', '2027-09-12', 7500.00, 10),
+(8, 'Porto de Galinhas, PE', '2027-04-20', '2027-04-27', 2800.00, 25),
+(9, 'Lisboa, Portugal', '2027-10-10', '2027-10-20', 9200.00, 12),
+(10, 'Foz do Iguaçu, PR', '2027-05-15', '2027-05-20', 1400.00, 40);
+
+-- 2. Povoando a tabela 'cliente' (12 clientes)
+INSERT INTO `cliente` (`id`, `nome`, `cpf`, `email`, `telefone`) VALUES
+(1, 'Ana Clara Silva', '12345678901', 'ana.silva@email.com', 988887777),
+(2, 'Carlos Eduardo Souza', '98765432109', 'carlos.souza@email.com', 977776666),
+(3, 'Mariana Oliveira', '45678912303', 'mariana.oliveira@email.com', 966665555),
+(4, 'Juliana Almeida', '11122233344', 'juliana.almeida@email.com', 955554444),
+(5, 'Lucas Martins', '22233344455', 'lucas.martins@email.com', 944443333),
+(6, 'Beatriz Lima', '33344455666', 'beatriz.lima@email.com', 933332222),
+(7, 'Gabriel Rocha', '44455566777', 'gabriel.rocha@email.com', 922221111),
+(8, 'Larissa Mendes', '55566677888', 'larissa.mendes@email.com', 911110000),
+(9, 'Matheus Costa', '66677788999', 'matheus.costa@email.com', 900009999),
+(10, 'Camila Ribeiro', '77788990011', 'camila.ribeiro@email.com', 989898989),
+(11, 'Thiago Cardoso', '88899001122', 'thiago.cardoso@email.com', 978787878),
+(12, 'Fernanda Dias', '99900112233', 'fernanda.dias@email.com', 967676767);
+
+-- 3. Povoando a tabela 'pacote' (12 pacotes)
+INSERT INTO `pacote` (`id`, `idViagem`, `nome`, `descricao`, `preco`, `beneficios`) VALUES
+(1, 1, 'Pacote Família RJ', 'Viagem com hotel e café da manhã inclusos', 1800.00, 'Café da manhã, Traslado'),
+(2, 2, 'Pacote Luxo Noronha', 'Resort all-inclusive com mergulho', 5200.00, 'All-inclusive, Passeio de barco'),
+(3, 3, 'Pacote Inverno Gramado', 'Hotel com calefação e tour', 2500.00, 'Café colonial, City tour'),
+(4, 4, 'Pacote Axé Salvador', 'Hotel com vista para o mar e tour histórico', 2400.00, 'Café da manhã, City Tour'),
+(5, 5, 'Pacote Neve Bariloche', 'Hospedagem em cabana alpina com ski pass', 5400.00, 'Ski Pass, Café da manhã'),
+(6, 6, 'Pacote Praias Floripa', 'Resort próximo à praia de Jurerê', 1900.00, 'Traslado, Passeio de escuna'),
+(7, 7, 'Pacote Caribe All-Inclusive', 'Resort de luxo com bebidas e refeições', 8200.00, 'All-Inclusive, Open Bar'),
+(8, 8, 'Pacote Sol e Mar Porto', 'Pousada charmosa com café regional', 3100.00, 'Café da manhã, Passeio de buggy'),
+(9, 9, 'Pacote Eurotrip Lisboa', 'Hotel 4 estrelas no centro histórico', 9800.00, 'Café da manhã, Guia turístico'),
+(10, 10, 'Pacote Cataratas Foz', 'Hotel próximo ao parque nacional', 1700.00, 'Ingressos do parque, Traslado'),
+(11, 4, 'Pacote Cultural Salvador', 'Imersão na cultura e culinária baiana', 2600.00, 'Show folclórico, Jantar típico'),
+(12, 6, 'Pacote Aventura Floripa', 'Trilhas guiadas e esportes radicais', 2100.00, 'Equipamentos, Guia especializado');
+
+-- 4. Povoando a tabela 'reserva' (12 reservas)
+INSERT INTO `reserva` (`id`, `idCliente`, `idPacote`, `dataReserva`, `status`) VALUES
+(1, 1, 1, '2026-11-01', 'Confirmada'),
+(2, 2, 2, '2026-11-05', 'Pendente'),
+(3, 3, 3, '2026-11-10', 'Confirmada'),
+(4, 4, 4, '2026-11-12', 'Confirmada'),
+(5, 5, 5, '2026-11-13', 'Confirmada'),
+(6, 6, 6, '2026-11-14', 'Pendente'),
+(7, 7, 7, '2026-11-15', 'Confirmada'),
+(8, 8, 8, '2026-11-15', 'Cancelada'),
+(9, 9, 9, '2026-11-16', 'Confirmada'),
+(10, 10, 10, '2026-11-16', 'Pendente'),
+(11, 11, 11, '2026-11-17', 'Confirmada'),
+(12, 12, 12, '2026-11-18', 'Confirmada');
+
+-- 5. Povoando a tabela 'pagamento' (8 pagamentos referentes às reservas confirmadas)
+INSERT INTO `pagamento` (`id`, `idReserva`, `valor`, `formaPagamento`, `statusPagamento`, `dataPagamento`) VALUES
+(1, 1, 1800.00, 'Cartão de Crédito', 'Pago', '2026-11-02'),
+(2, 3, 2500.00, 'Pix', 'Pago', '2026-11-11'),
+(3, 4, 2400.00, 'Cartão de Crédito', 'Pago', '2026-11-12'),
+(4, 5, 5400.00, 'Pix', 'Pago', '2026-11-13'),
+(5, 7, 8200.00, 'Boleto', 'Pago', '2026-11-15'),
+(6, 9, 9800.00, 'Cartão de Crédito', 'Pago', '2026-11-16'),
+(7, 11, 2600.00, 'Pix', 'Pago', '2026-11-17'),
+(8, 12, 2100.00, 'Cartão de Crédito', 'Pago', '2026-11-18');
+
+-- Reativa a verificação de chaves estrangeiras
+SET FOREIGN_KEY_CHECKS = 1;
