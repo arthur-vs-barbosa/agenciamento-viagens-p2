@@ -48,6 +48,11 @@
                     </div>
                     <button type="submit">Salvar</button>
                 </form>
+                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                <form action="../relatorios/gerarPDF.php" method="get">
+                    <input type="hidden" name="tipo" value="viagens">
+                    <button type="submit">Relatório de Viagens</button>
+                </form>
                 <hr>
                 <div class="gerenciar">
                     <h1>Viagens Marcadas</h1>

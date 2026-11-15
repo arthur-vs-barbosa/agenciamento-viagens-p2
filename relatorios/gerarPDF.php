@@ -4,8 +4,6 @@
     require_once 'dompdf/autoload.inc.php';
 
     include '../sql/conexao.php';
-    //Declara variável html
-    $html = '';
 
     // Recebe o tipo de relatório enviado pelo botão
     $tipo = $_GET['tipo'] ?? '';
@@ -31,8 +29,8 @@
         case 'viagens':
             $titulo = "Relatório de Viagens";
 
-            $colunas = [];
-            $campos = [];
+            $colunas = ['ID','Destino','Data Ida','Data Volta','Preço Base','Vagas'];
+            $campos = ['id', 'destino', 'dtIda', 'dtVolta', 'precoBase', 'vagas'];
 
             // Busca as viagens
             $sql = "SELECT * FROM viagem";
@@ -41,8 +39,8 @@
         case 'pacotes':
             $titulo = "Relatório de Pacotes";
 
-            $colunas = [];
-            $campos = [];
+            $colunas = ['ID','Viagem','Nome','Descrição','Preço','Benefícios'];
+            $campos = ['id', 'idViagem', 'nome', 'descricao', 'preco', 'beneficios'];
 
             // Busca os pacotes
             $sql = "SELECT * FROM pacote";
@@ -51,8 +49,8 @@
         case 'reservas':
             $titulo = "Relatório de Pacotes";
 
-            $colunas = [];
-            $campos = [];
+            $colunas = ['ID','Cliente','Pacote','Data Reserva', 'Status'];
+            $campos = ['id', 'idCliente', 'idPacote', 'dataReserva', 'status'];
 
             // Busca os pacotes
             $sql = "SELECT * FROM reserva";
@@ -61,8 +59,8 @@
         case 'pagamentos':
             $titulo = "Relatório de Pacotes";
 
-            $colunas = [];
-            $campos = [];
+            $colunas = ['ID', 'Reserva', 'Valor Total', 'Forma de Pagamento', 'Status', 'Data'];
+            $campos = ['id', 'idReserva', 'valor', 'formaPagamento', 'statusPagamento', 'dataPagamento'];
 
             // Busca os pacotes
             $sql = "SELECT * FROM pagamento";
@@ -91,8 +89,13 @@
     if(!$resultado){
         die("Erro na consulta: ".$conexao->error);
     }
+    
+/*A partir daqui muitas coisas importantes devem ser consideradas
+O .= no $html serve para concatenar, o que é isso? adiciona mais campos na variável sem
+substituir o que já tinha, e acredite, isso será muito usado no código abaixo*/
 
-    $html .= '
+//Começo do código html principal que será salvo na variável
+    $html = '
     <!DOCTYPE html>
     <html lang="pt-br">
         <head>
@@ -193,25 +196,32 @@
 
         <!-- Campos de cada tabela -->
         <table class="tabelaRelatorio">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>CPF</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                </tr>
-            </thead>
+            <thead>';
+            //Aqui ocorre a primeira quebra na estrutura html pra fz a lógica do php
+
+            //Usa o foreach pra nomear cada coluna (também com campos html quebrados e remendados com superbonde)
+                $html .='<tr>';
+                foreach($colunas as $coluna){
+                    $html.='<th>'.$coluna.'</th>';
+                }
+                $html .='</tr>';
             
-            <tbody>';
-    while($linha = $resultado->fetch_assoc()){
-    $html .='<tr>';
-    foreach($campos as $campo){
-        $html.='<td>'.$linha[$campo].'</td>';
-    }
-    $html .='</tr>';
-    }
-    $html .='   <!-- As linhas serão adicionadas pelo PHP -->
+            $html.='
+            </thead>
+
+            <tbody>
+            <!-- As linhas serão adicionadas pelo PHP -->';
+
+            //Usa o while pra percorrer os campos no banco de dados por associação antes de imprimir eles
+            while($linha = $resultado->fetch_assoc()){
+            $html .='<tr>';
+            foreach($campos as $campo){
+                $html.='<td>'.$linha[$campo].'</td>';
+            }
+            $html .='</tr>';
+            }
+
+            $html .='
             </tbody>
         </table>
 
@@ -242,5 +252,6 @@
 
     // Envia o PDF ao navegador
     //Extra!! O Attachment faz o navegador baixar o pdf ao invés de abrir diretamente
-    $dompdf->stream('relatorio.pdf', ['Attachment' => true]);
+    //OUTRO EXTRA!!! dá p adicionar no próprio nome o tipo do pdf baixado, maravilha nn vou ter q gambiarriar
+    $dompdf->stream("relatorio_{$tipo}.pdf", ['Attachment' => true]);
 ?>

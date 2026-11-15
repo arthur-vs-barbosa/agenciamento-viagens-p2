@@ -48,6 +48,11 @@
                     </div>
                     <button type="submit">Enviar</button>
                 </form>
+                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                <form action="../relatorios/gerarPDF.php" method="get">
+                    <input type="hidden" name="tipo" value="pacotes">
+                    <button type="submit">Relatório de Pacotes</button>
+                </form>
                 <hr>
                 <div class="gerenciar">
                     <h1>Lista de Pacotes</h1>
