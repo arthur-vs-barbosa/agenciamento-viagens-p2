@@ -15,12 +15,34 @@ p{color: #aaaaaa;}
     display: flex;
     gap: 50px;
 }
+/*Topo*/
+.topo{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid#dfdfdf;
+    background: #ffffff;
+}
+.topo h1{color: #3cc4b2;}
+.topo img{
+    height: 40px;
+    width: 40px;
+    margin-left: 8px;
+    border-radius: 100%;
+    background: #c6f3ec;
+}
+.topo h4{margin: 0;}
+.usuario{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
 /*Rodapé*/
 .rodape{
     display: flex;
     justify-content: center;
     font-size: 13px;
-    padding: 20px;
+    padding: 60px;
     background: #5c5c5c;
 }
 
@@ -35,15 +57,12 @@ p{color: #aaaaaa;}
     box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
     background: #ffffff;
 }
-.lado h3{
-    padding-bottom: 50px;
-    color: #3cc4b2;
-}
 .lado img{padding-left: 10px;}
 .lado a{
     padding-left: 5px;
     color: #292929;
 }
+
 /*Meio com info geral*/
 .meio{
     flex: 1;
@@ -64,8 +83,11 @@ p{color: #aaaaaa;}
     color: #3cc4b2;
 }
 
-.meio h1,.meio h3{text-align: center;}
-.meio h3{color: #5c5c5c;}
+.meio h3{
+    padding: 10px;
+    text-align: center;
+    color: #5c5c5c;
+}
 
 .clientes,.viagens,.pacotesTurist,.reservas,.pagamento,.relatorios{
     display: inline-block;
@@ -76,7 +98,7 @@ p{color: #aaaaaa;}
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background: #ffffff;
 }
-.viagens h2, p, .reservas h2, p, .clientes h2, p, .pagamento h2, p, .relatorios h2, p{
+.viagens h2,.viagens p, .reservas h2,.reservas p, .clientes h2,.clientes p, .pagamento h2,.pagamento p, .relatorios h2,.relatorios p{
     text-align: left;
 }
 .clientes,.pagamento,.relatorios{
