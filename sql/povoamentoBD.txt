@@ -16,8 +16,8 @@ INSERT INTO `viagem` (`id`, `destino`, `dtIda`, `dtVolta`, `precoBase`, `vagas`)
 
 -- 2. Povoando a tabela 'cliente' (12 clientes)
 INSERT INTO `cliente` (`id`, `nome`, `cpf`, `email`, `telefone`) VALUES
-(1, 'Ana Clara Silva', '12345678901', 'ana.silva@email.com', 988887777),
-(2, 'Carlos Eduardo Souza', '98765432109', 'carlos.souza@email.com', 977776666),
+(1, 'Arthur Barbosa', '12345678901', 'arthur.barbosa@email.com', 988887777),
+(2, 'Roberta Mendes', '98765432109', 'roberta.mendes@email.com', 977776666),
 (3, 'Mariana Oliveira', '45678912303', 'mariana.oliveira@email.com', 966665555),
 (4, 'Juliana Almeida', '11122233344', 'juliana.almeida@email.com', 955554444),
 (5, 'Lucas Martins', '22233344455', 'lucas.martins@email.com', 944443333),

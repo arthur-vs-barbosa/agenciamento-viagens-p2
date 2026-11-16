@@ -109,7 +109,7 @@ button:hover{
 /*Botão de gerar Relatório*/
 .formPDF {
     float: right;
-    margin-top: -42px; /* Puxa o botão para cima para alinhar com a barra de pesquisa */
+    margin-top: -42px; /* Puxa o botão para cima */
 }
 
 /* Botão do relatório em vermelho desbotado*/

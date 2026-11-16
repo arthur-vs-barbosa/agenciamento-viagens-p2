@@ -70,15 +70,24 @@
             //Título do PDF Gerado
             $titulo = "Relatório Geral";
 
-            /* !!!IMPORTANTE!!! Aqui eu tive que salvar as colunas e do banco pra pesquisa e geração através das variáveis,
-            pra otimizar a criação de vários arquivos e linhas de html, e se estiver lendo isso... por favor me ajude, eu
-            estou enlouquecendo*/
-
-            $colunas = [];
-            $campos = [];
+            $colunas = ['Nome','Destino','data Ida','data Volta','Reserva','Total Pago','Status'];
+            $campos = ['nomeCliente','destino','dtIda','dtVolta','idReserva','valorPago','statusPagamento'];
 
             //Busca dados gerais do cadastro através de joins
-            $sql = "";
+            $sql = "SELECT 
+                        cliente.nome AS nomeCliente,
+                        viagem.destino,
+                        viagem.dtIda,
+                        viagem.dtVolta,
+                        reserva.id AS idReserva,
+                        pagamento.valor AS valorPago,
+                        pagamento.statusPagamento
+                    FROM reserva
+                    INNER JOIN cliente ON reserva.idCliente = cliente.id
+                    INNER JOIN pacote ON reserva.idPacote = pacote.id
+                    INNER JOIN viagem ON pacote.idViagem = viagem.id
+                    LEFT JOIN pagamento ON pagamento.idReserva = reserva.id
+                    ORDER BY reserva.id DESC";
             break;
         
         default:
@@ -90,6 +99,8 @@
         die("Erro na consulta: ".$conexao->error);
     }
     
+//OS 5 RELATÓRIOS DO APOCALIPSE!!!
+
 /*A partir daqui muitas coisas importantes devem ser consideradas
 O .= no $html serve para concatenar, o que é isso? adiciona mais campos na variável sem
 substituir o que já tinha, e acredite, isso será muito usado no código abaixo*/

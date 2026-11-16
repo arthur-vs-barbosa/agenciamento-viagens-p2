@@ -3,8 +3,7 @@ $servidor="localhost";
 $usuario="root";
 $senha="";
 $banco="agenciaviagens";
-//$porta=3306;
-
+//$porta=3306; //AS 3307 PORTAS INFERNAIS!!!!!!!!!
 $conexao= new mysqli($servidor,$usuario,$senha,$banco);
 if ($conexao -> connect_error){
     die("Erro na conexão: ".$conexao -> connect_error);

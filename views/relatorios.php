@@ -1,3 +1,29 @@
+<?php
+    include "../sql/crudClientes.php";
+    include "../sql/crudPacotes.php";
+    include "../sql/crudPagamentos.php";
+    include "../sql/crudReservas.php";
+    include "../sql/crudViagens.php";
+
+    //Joins de Tabelas
+    $sql="SELECT 
+                cliente.nome AS nomeCliente,
+                viagem.destino,
+                viagem.dtIda,
+                viagem.dtVolta,
+                reserva.id AS idReserva,
+                pagamento.valor AS valorPago,
+                pagamento.statusPagamento
+            FROM reserva
+            INNER JOIN cliente ON reserva.idCliente = cliente.id
+            INNER JOIN pacote ON reserva.idPacote = pacote.id
+            INNER JOIN viagem ON pacote.idViagem = viagem.id
+            LEFT JOIN pagamento ON pagamento.idReserva = reserva.id
+            ORDER BY reserva.id DESC";
+
+    $resultado = $conexao->query($sql);
+?>          
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,30 +48,40 @@
             <div class="meioRelatorio">
                 <div class="cadastrar">
                     <h1>Relatórios</h1>
+
+                    <!--Botão gerar relatório-->
+                    <form action="../relatorios/gerarPDF.php" method="get">
+                        <input type="hidden" name="tipo" value="geral">
+                        <button type="submit">Relatório Geral</button>
+                    </form>
+
                     <!--Tabela-->
                     <table class="tabelaRelatorio">
                         <thead>
                             <tr>
-                                <th>ID Viagens</th>
+                                <th>Cliente</th>
                                 <th>Destino</th>
                                 <th>Data Ida</th>
                                 <th>Data Volta</th>
-                                <th>Quantidade Passageiros</th>
-                                <th>Total de Lucro</th>
+                                <th>Reserva</th>
+                                <th>Total pago</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <!--Aqui os dados devem ser exibidos toda vez que forem adicionados-->
-                                <!--Como cada página também tem uma espécie de relatório, eu não sei muito bem se essa página é necessaria-->
-                                <!--Caso você também achar essa página um pouco desnecessária ou que é melhor muda me avisa-->
-                                <td>a</td><!--ID Viagens-->
-                                <td>a</td><!--Destino-->
-                                <td>a</td><!--Data Ida-->
-                                <td>a</td><!--Data Volta-->
-                                <td>a</td><!--Quantidade Passageiros-->
-                                <td>a</td><!--Total de Lucro-->
-                            </tr>
+                            <?php while($rel = $resultado->fetch_assoc()) { ?>
+                                <tr>
+                                    <td><?php echo $rel['nomeCliente']; ?></td>
+                                    <td><?php echo $rel['destino']; ?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($rel['dtIda'])); ?></td>
+                                    <td><?php echo date('d/m/Y', strtotime($rel['dtVolta'])); ?></td>
+                                    <td>#<?php echo $rel['idReserva']; ?></td>
+                                    <!--Impede o espaço em branco caso retorne vazio-->
+                                    <td>R$ <?php echo number_format(!empty($rel['valorPago']) ? $rel['valorPago'] : 0, 2, ',', '.'); ?></td>
+                                    <!--Impede o espaço em branco caso retorne vazio-->
+                                    <td><?php echo !empty($rel['statusPagamento']) ? $rel['statusPagamento'] : 'Pendente'; ?></td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
