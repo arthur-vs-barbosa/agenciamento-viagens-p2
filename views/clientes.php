@@ -21,39 +21,65 @@
             <!--Lateral do site-->
             <?php include 'lateralsite.php';?>
 
-            <!--Form Criação-->
+            <!--Form Criação ou Edição-->
             <div class="meioForm">
-                <h1>Cadastrar Cliente</h1>
-                <!--Formulário-->
-                <form method="post" class="cadastrar">
-                    <input type="hidden" name="acao" value="criar">
-                    <div class="organForm">
-                        <label>Nome</label>
-                        <input type="text" name="nome">
-                    </div>
-                    <div class="organForm">
-                        <label>CPF</label>
-                        <input type="number" name="cpf" maxlength="11">
-                    </div>
-                    <div class="organForm">
-                        <label>Email</label>
-                        <input type="email" name="email">
-                    </div>
+                
+                <?php if (empty($editar)) { ?>
+                    <!-- TELA DE CADASTRO -->
+                    <h1>Cadastrar Cliente</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="criar">
+                        
                         <div class="organForm">
-                        <label>Celular</label>
-                        <input type="tel" name="telefone">
-                    </div>
-                    <button type="submit">Cadastrar</button>
-                </form>
+                            <label>Nome</label>
+                            <input type="text" name="nome" required>
+                        </div>
+                        <div class="organForm">
+                            <label>CPF</label>
+                            <input type="number" name="cpf" maxlength="11" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Celular</label>
+                            <input type="tel" name="telefone" required>
+                        </div>
+                        <button type="submit">Cadastrar</button>
+                    </form>
 
-                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
-                <form action="../relatorios/gerarPDF.php" method="get">
-                    <input type="hidden" name="tipo" value="clientes">
-                    <button type="submit">Relatório de Clientes</button>
-                </form>
+                <?php } else { ?>
+                    <!-- TELA DE EDIÇÃO -->
+                    <h1>Editar Cliente</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="editar">
+                        <input type="hidden" name="id" value="<?php echo $editar["id"]; ?>">
 
-                </form>
-                <!--Formulário de edição-->
+                        <div class="organForm">
+                            <label>Nome</label>
+                            <input type="text" name="nome" value="<?php echo $editar["nome"]; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>CPF</label>
+                            <input type="number" name="cpf" maxlength="11" value="<?php echo $editar["cpf"]; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Email</label>
+                            <input type="email" name="email" value="<?php echo $editar["email"]; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Celular</label>
+                            <input type="tel" name="telefone" value="<?php echo $editar["telefone"]; ?>" required>
+                        </div>
+
+                        <div class="acoes-form">
+                            <button type="submit">Salvar Edição</button>
+                            <a href="clientes.php">Cancelar</a>
+                        </div>
+                    </form>
+                    <!-- O FORMULÁRIO DE EDIÇÃO TERMINA EXATAMENTE AQUI -->
+                <?php } ?>
 
                 <hr>
                 <div class="gerenciar">
@@ -63,6 +89,12 @@
                     <form method="get">
                         <input type="text" name="buscar" placeholder="Pesquisar pelo nome">
                         <button type="submit">Pesquisar</button>
+                    </form>
+
+                     <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                    <form action="../relatorios/gerarPDF.php" method="get" class="formPDF">
+                            <input type="hidden" name="tipo" value="clientes">
+                            <button type="submit">Relatório de Clientes</button>
                     </form>
 
                     <!-- Tabela de clientes -->

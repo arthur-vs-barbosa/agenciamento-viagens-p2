@@ -22,37 +22,76 @@
             <?php include 'lateralsite.php';?>
 
             <div class="meioForm">
-                <h1>Realizar Reserva</h1>
-                <!--Formulário-->
-                <form method="post" class="cadastrar">
-                    <input type="hidden" name="acao" value="criar">
-                    <div class="organForm">
-                        <label>ID Cliente</label>
-                        <input type="number" name="idCliente" required>
-                    </div>
-                    <div class="organForm">
-                        <label>ID Pacote</label>
-                        <input type="number" name="idPacote" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Data da Reserva</label>
-                        <input type="date" name="dataReserva" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Status da Reserva</label>
-                        <input type="text" name="status">
-                    </div>
-                    <button type="submit">Enviar</button>
-                </form>
-                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
-                <form action="../relatorios/gerarPDF.php" method="get">
-                    <input type="hidden" name="tipo" value="reservas">
-                    <button type="submit">Relatório de Reservas</button>
-                </form>
+                <?php if (empty($editar)) { ?>
+                    <!-- TELA DE CADASTRO -->
+                     <h1>Realizar Reserva</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="criar">
+                        
+                        <div class="organForm">
+                            <label>ID do Cliente</label>
+                            <input type="number" name="idCliente" required>
+                        </div>
+                        <div class="organForm">
+                            <label>ID do Pacote</label>
+                            <input type="number" name="idPacote" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Data da Reserva</label>
+                            <input type="date" name="dataReserva" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Status</label>
+                            <input type="text" name="status" placeholder="Ex: Confirmada" required>
+                        </div>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+
+                <?php } else { ?>
+                    <!-- TELA DE EDIÇÃO -->
+                    <h1>Editar Reserva</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="editar">
+                        <input type="hidden" name="id" value="<?php echo $editar["id"] ?? ''; ?>">
+
+                        <div class="organForm">
+                            <label>ID do Cliente</label>
+                            <input type="number" name="idCliente" value="<?php echo $editar["idCliente"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>ID do Pacote</label>
+                            <input type="number" name="idPacote" value="<?php echo $editar["idPacote"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Data da Reserva</label>
+                            <input type="date" name="dataReserva" value="<?php echo $editar["dataReserva"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Status</label>
+                            <input type="text" name="status" value="<?php echo $editar["status"] ?? ''; ?>" required>
+                        </div>
+
+                        <div class="acoes-form">
+                            <button type="submit">Salvar Edição</button>
+                            <a href="reservas.php">Cancelar</a>
+                        </div>
+                    </form>
+                <?php } ?>
+                
                 <hr>
                 <div class="gerenciar">
                     <h1>Reservas Feitas</h1>
                     <!--Aqui colocar uma lista das reservas já feitas e um método de pesquisa-->
+                    <form method="get">
+                        <input type="text" name="buscar" placeholder="Pesquisar pelo ID">
+                        <button type="submit">Pesquisar</button>
+                    </form>
+
+                    <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                    <form action="../relatorios/gerarPDF.php" method="get" class="formPDF">
+                        <input type="hidden" name="tipo" value="reservas">
+                        <button type="submit">Relatório de Reservas</button>
+                    </form>
                     <!-- Tabela de reservas -->
                     <table border="1">
                         <tr>

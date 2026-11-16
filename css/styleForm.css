@@ -37,8 +37,14 @@
     border: 1px solid #dfdfdf;
     background: #fcfcfc;
 }
-.cadastrar button{
-    grid-column: 1;
+
+hr{
+    border: 1px solid #dfdfdf;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+/*Botão geral*/
+button{
     height: 40px;
     width: 110px;
     border-radius: 10px;
@@ -48,8 +54,74 @@
     color: #ffffff;
     background: #3cc4b2;
 }
-hr{
+
+button:hover{
+    background: #299181;
+}
+/*Botão salvar/cadastrar*/
+.cadastrar button{grid-column: 1;}
+
+/*Botão PDF*/
+.relatorioForm button{margin-top: 10px;}
+
+/*Pesquisa*/
+.gerenciar input{
+    height: 40px;
+    width: 40%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
     border: 1px solid #dfdfdf;
-    margin-top: 5%;
-    margin-bottom: 15px;
+    background: #fcfcfc;
+}
+
+/*Tabelas*/
+.gerenciar table{
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+.gerenciar th{
+    text-align: center;
+    padding: 10px 0px;
+    color: #ffffff;
+    border: 1px solid #3cc4b2;
+    background: #3cc4b2;
+}
+.gerenciar td{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    background: #fcfcfc
+}
+.gerenciar a{
+    font-weight: bold;
+    color: #3cc4b2;
+}
+
+/* Botões edição */
+.acoes-form a {
+    color: #3cc4b2;
+    font-weight: bold;
+}
+
+/*Botão de gerar Relatório*/
+.formPDF {
+    float: right;
+    margin-top: -42px; /* Puxa o botão para cima para alinhar com a barra de pesquisa */
+}
+
+/* Botão do relatório em vermelho desbotado*/
+.formPDF button {
+    background: #d96b6b; 
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efeito hover */
+.formPDF button:hover {
+    background: #c45555;
 }

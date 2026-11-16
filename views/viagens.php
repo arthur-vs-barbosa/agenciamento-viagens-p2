@@ -22,41 +22,84 @@
             <?php include 'lateralsite.php';?>
 
             <div class="meioForm">
-                <h1>Organizar Viagem</h1>
-                <!--Formulário-->
-                <form method="post" class="cadastrar">
-                    <input type="hidden" name="acao" value="criar">
-                    <div class="organForm">
-                        <label>Destino</label>
-                        <input type="text" name="destino" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Ida</label>
-                        <input type="date" name="dtIda" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Volta</label>
-                        <input type="date" name="dtVolta" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Preço Base</label>
-                        <input type="number" name="precoBase" step="0.01" min="0" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Vagas</label>
-                        <input type="number" name="vagas" required>
-                    </div>
-                    <button type="submit">Salvar</button>
-                </form>
-                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
-                <form action="../relatorios/gerarPDF.php" method="get">
-                    <input type="hidden" name="tipo" value="viagens">
-                    <button type="submit">Relatório de Viagens</button>
-                </form>
+                <?php if (empty($editar)) { ?>
+                    <!-- TELA DE CADASTRO -->
+                    <h1>Organizar Viagem</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="criar">
+                        
+                        <div class="organForm" style="grid-column: 1 / -1;">
+                            <label>Destino</label>
+                            <input type="text" name="destino" required style="width: 100%;">
+                        </div>
+                        <div class="organForm">
+                            <label>Data de Ida</label>
+                            <input type="date" name="dtIda" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Data de Volta</label>
+                            <input type="date" name="dtVolta" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Preço Base</label>
+                            <input type="number" step="0.01" name="precoBase" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Vagas</label>
+                            <input type="number" name="vagas" required>
+                        </div>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+
+                <?php } else { ?>
+                    <!-- TELA DE EDIÇÃO -->
+                    <h1>Editar Viagem</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="editar">
+                        <input type="hidden" name="id" value="<?php echo $editar["id"] ?? ''; ?>">
+
+                        <div class="organForm" style="grid-column: 1 / -1;">
+                            <label>Destino</label>
+                            <input type="text" name="destino" value="<?php echo $editar["destino"] ?? ''; ?>" required style="width: 100%;">
+                        </div>
+                        <div class="organForm">
+                            <label>Data de Ida</label>
+                            <input type="date" name="dtIda" value="<?php echo $editar["dtIda"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Data de Volta</label>
+                            <input type="date" name="dtVolta" value="<?php echo $editar["dtVolta"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Preço Base</label>
+                            <input type="number" step="0.01" name="precoBase" value="<?php echo $editar["precoBase"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Vagas</label>
+                            <input type="number" name="vagas" value="<?php echo $editar["vagas"] ?? ''; ?>" required>
+                        </div>
+
+                        <div class="acoes-form">
+                            <button type="submit">Salvar Edição</button>
+                            <a href="viagens.php">Cancelar</a>
+                        </div>
+                    </form>
+                <?php } ?>
+
                 <hr>
                 <div class="gerenciar">
                     <h1>Viagens Marcadas</h1>
                     <!--Aqui colocar uma lista das viagens já marcadas e um método de pesquisa-->
+                    <form method="get">
+                        <input type="text" name="buscar" placeholder="Pesquisar pelo destino">
+                        <button type="submit">Pesquisar</button>
+                    </form>
+
+                    <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                    <form action="../relatorios/gerarPDF.php" method="get" class="formPDF">
+                        <input type="hidden" name="tipo" value="viagens">
+                        <button type="submit">Relatório de Viagens</button>
+                    </form>
                     <!-- Tabela de viagens -->
                     <table border="1">
                         <tr>

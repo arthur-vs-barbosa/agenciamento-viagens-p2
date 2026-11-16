@@ -71,18 +71,20 @@ p{color: #aaaaaa;}
 }
 .meio hr{
     border: 1px solid #dfdfdf;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    margin-left: -45px;
-    width: 113%;
+    margin: 10px 0px 0px -50px;
+    width: 115%;
 }
 
-.clientes a,.viagens a,.pacotesTurist a,.reservas a,.pagamento a,.relatorios a{
+.clientes a,.viagens a,.pacotesTurist a,.reservas a,.pagamento a{
     float: right;
     margin-right: -30px;
     color: #3cc4b2;
+    margin-top: -15px;
 }
-
+.clientes a,.pagamento a,.pacotesTurist a{
+    margin-top: -80px;
+    margin-right: -10px;
+}
 .meio h3{
     padding: 10px;
     text-align: center;
@@ -91,22 +93,28 @@ p{color: #aaaaaa;}
 
 .clientes,.viagens,.pacotesTurist,.reservas,.pagamento,.relatorios{
     display: inline-block;
-    padding: 20px 60px;
+    padding: 40px 60px;
     margin: 25px;
     border-radius: 10px;
     border: 1px solid #dfdfdf;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background: #ffffff;
 }
-.viagens h2,.viagens p, .reservas h2,.reservas p, .clientes h2,.clientes p, .pagamento h2,.pagamento p, .relatorios h2,.relatorios p{
+.viagens h2,.viagens p, .reservas h2,.reservas p, .clientes h2,.clientes p, .pagamento h2,.pagamento p, .pacotesTurist h2,.pacotesTurist p{
     text-align: left;
 }
-.clientes,.pagamento,.relatorios{
+.clientes,.pagamento,.pacotesTurist{
     width: 30%;
+    height: 150px;
+    padding: 20px 40px;
 }
-.clientes img,.pagamento img,.relatorios img{
+.clientes p,.pagamento p,.pacotesTurist p{
+    margin-top: 10px;
+    font-size: 40px;
+}
+.clientes img,.pagamento img,.pacotesTurist img{
     float: left;
-    height: 15%;
+    height: 60%;
     width: 15%;
     margin-left: -25px;
     margin-right: 35px;
@@ -119,3 +127,4 @@ p{color: #aaaaaa;}
     height: 55%;
     width: 46%;
 }
+

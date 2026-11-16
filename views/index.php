@@ -1,4 +1,18 @@
-<?php include "../sql/conexao.php";?>
+<?php
+    include "../sql/crudClientes.php";
+    include "../sql/crudPacotes.php";
+    include "../sql/crudPagamentos.php";
+    include "../sql/crudReservas.php";
+    include "../sql/crudViagens.php";
+
+    //Contagem de Clientes
+    $resCountC=$conexao->query("SELECT * FROM cliente");
+    $totalClientes=$resCountC->num_rows;
+
+    //Contagem de Pagamentos
+    $resCountP=$conexao->query("SELECT * FROM pagamento");
+    $totalPagamentos=$resCountP->num_rows;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,13 +40,13 @@
             <div class="clientes">
                 <img src="../Icones/person-fill.svg" alt="person">
                 <h2>Clientes</h2>
-                <p>-</p><!--Colocar o count total de clientes cadastrado aonde está a tag 'p'-->
+                <p><?php echo $totalClientes;?></p><!--Colocar o count total de clientes cadastrado aonde está a tag 'p'-->
                 <a href="cliente.html">Ver mais</a>
             </div> 
             <div class="pagamento">
                 <img src="../Icones/currency-dollar.svg" alt="money">
                 <h2>Pagamentos</h2>
-                <p>-</p><!--Colocar o count do valor total de pagamentos recebidos aonde está a tag 'p'-->
+                <p><?php echo $totalPagamentos;?></p><!--Colocar o count do valor total de pagamentos recebidos aonde está a tag 'p'-->
                 <a href="pagar.html">Ver mais</a>
             </div>
             <div class="relatorios">

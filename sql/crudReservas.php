@@ -89,7 +89,7 @@
             FROM reserva
             JOIN cliente ON reserva.idCliente = cliente.id
             JOIN pacote ON reserva.idPacote = pacote.id
-            WHERE cliente.nome LIKE '%$busca%'
+            WHERE cliente.nome LIKE '%$busca%' OR reserva.status LIKE '%$busca%'
             ORDER BY reserva.id DESC";
 
     $resultado = $conexao->query($sql);

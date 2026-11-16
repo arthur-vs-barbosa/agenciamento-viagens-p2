@@ -22,41 +22,85 @@
             <?php include 'lateralsite.php';?>
 
             <div class="meioForm">
-                <h1>Realizar Pagamentos</h1>
                 <!--Formulário-->
-                <form method="post" class="cadastrar">
-                    <input type="hidden" name="acao" value="criar">
-                    <div class="organForm">
-                        <label>ID Reserva</label>
-                        <input type="number" name="idReserva" required> 
-                    </div>
-                    <div class="organForm">
-                        <label>Valor</label>
-                        <input type="number" name="valor" step="0.01" min="0" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Forma de Pagamento</label>
-                        <input type="text" name="formaPagamento" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Status do Pagamento</label>
-                        <input type="text" name="statusPagamento" required>
-                    </div>
-                    <div class="organForm">
-                        <label>Data do Pagamento</label>
-                        <input type="date" name="dataPagamento" required>
-                    </div>
-                    <button type="submit">Salvar</button>
-                </form>
-                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
-                <form action="../relatorios/gerarPDF.php" method="get">
-                    <input type="hidden" name="tipo" value="pagamentos">
-                    <button type="submit">Relatório de Pagamentos</button>
-                </form>
+                <?php if (empty($editar)) { ?>
+                    <!-- TELA DE CADASTRO -->
+                    <h1>Realizar Pagamentos</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="criar">
+                        
+                        <div class="organForm">
+                            <label>ID da Reserva</label>
+                            <input type="number" name="idReserva" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Valor</label>
+                            <input type="number" step="0.01" name="valor" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Forma de Pagamento</label>
+                            <input type="text" name="formaPagamento" placeholder="Ex: Pix, Cartão" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Status do Pagamento</label>
+                            <input type="text" name="statusPagamento" placeholder="Ex: Pago, Pendente" required>
+                        </div>
+                        <div class="organForm" style="grid-column: 1 / -1;">
+                            <label>Data do Pagamento</label>
+                            <input type="date" name="dataPagamento" required style="width: 25%;">
+                        </div>
+                        <button type="submit">Cadastrar</button>
+                    </form>
+
+                <?php } else { ?>
+                    <!-- TELA DE EDIÇÃO -->
+                    <h1>Editar Pagamento</h1>
+                    <form method="post" class="cadastrar">
+                        <input type="hidden" name="acao" value="editar">
+                        <input type="hidden" name="id" value="<?php echo $editar["id"] ?? ''; ?>">
+
+                        <div class="organForm">
+                            <label>ID da Reserva</label>
+                            <input type="number" name="idReserva" value="<?php echo $editar["idReserva"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Valor</label>
+                            <input type="number" step="0.01" name="valor" value="<?php echo $editar["valor"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Forma de Pagamento</label>
+                            <input type="text" name="formaPagamento" value="<?php echo $editar["formaPagamento"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm">
+                            <label>Status do Pagamento</label>
+                            <input type="text" name="statusPagamento" value="<?php echo $editar["statusPagamento"] ?? ''; ?>" required>
+                        </div>
+                        <div class="organForm" style="grid-column: 1 / -1;">
+                            <label>Data do Pagamento</label>
+                            <input type="date" name="dataPagamento" value="<?php echo $editar["dataPagamento"] ?? ''; ?>" required style="width: 25%;">
+                        </div>
+
+                        <div class="acoes-form">
+                            <button type="submit">Salvar Edição</button>
+                            <a href="pagamentos.php">Cancelar</a>
+                        </div>
+                    </form>
+                <?php } ?>
+
                 <hr>
                 <div class="gerenciar">
                     <h1>Lista de Pagamentos</h1>
+                    <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                    <form action="../relatorios/gerarPDF.php" method="get" class="formPDF">
+                        <input type="hidden" name="tipo" value="pagamentos">
+                        <button type="submit">Relatório de Pagamentos</button>
+                    </form>
                     <!--Aqui colocar uma lista dos pagamentos já registrados e um método de pesquisa-->
+                    <form method="get">
+                        <input type="text" name="buscar" placeholder="Pesquisar pelo ID">
+                        <button type="submit">Pesquisar</button>
+                    </form>
+
                     <!-- Tabela de pagamentos -->
                     <table border="1">
                         <tr>

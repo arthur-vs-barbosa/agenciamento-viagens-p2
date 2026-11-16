@@ -22,45 +22,89 @@
             <?php include 'lateralsite.php';?>
 
             <div class="meioForm">
-                <h1>Pacotes</h1>
-                <!--Formulário-->
+            <?php if (empty($editar)) { ?>
+                <!-- TELA DE CADASTRO -->
+                <h1>Cadastrar Pacote</h1>
                 <form method="post" class="cadastrar">
                     <input type="hidden" name="acao" value="criar">
+                    
                     <div class="organForm">
                         <label>ID Viagem</label>
-                        <input type="number" name="idViagem">
+                        <input type="number" name="idViagem" required>
                     </div>
                     <div class="organForm">
                         <label>Nome</label>
-                        <input type="text" name="nome">
+                        <input type="text" name="nome" required>
                     </div>
                     <div class="organForm">
                         <label>Descrição</label>
-                        <input type="text" name="descricao">
+                        <input type="text" name="descricao" required>
                     </div>
                     <div class="organForm">
                         <label>Preço</label>
-                        <input type="number" name="preco" step="0.01">
+                        <input type="number" step="0.01" name="preco" required>
+                    </div>
+                    <!-- Benefícios ocupa a largura inteira das duas colunas... é, dá p fz style sem o arquivo css-->
+                    <div class="organForm" style="grid-column: 1 / -1;">
+                        <label>Benefícios</label>
+                        <input type="text" name="beneficios" required style="width: 100%;">
+                    </div>
+
+                    <div class="acoes-form">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+
+            <?php } else { ?>
+                <!-- TELA DE EDIÇÃO -->
+                <h1>Editar Pacote</h1>
+                <form method="post" class="cadastrar">
+                    <input type="hidden" name="acao" value="editar">
+                    <input type="hidden" name="id" value="<?php echo $editar["id"] ?? ''; ?>">
+
+                    <div class="organForm">
+                        <label>ID Viagem</label>
+                        <input type="number" name="idViagem" value="<?php echo $editar["idViagem"] ?? ''; ?>" required>
                     </div>
                     <div class="organForm">
-                        <label>Beneficios</label>
-                        <input type="text" name="beneficios">
+                        <label>Nome</label>
+                        <input type="text" name="nome" value="<?php echo $editar["nome"] ?? ''; ?>" required>
                     </div>
-                    <button type="submit">Enviar</button>
+                    <div class="organForm">
+                        <label>Descrição</label>
+                        <input type="text" name="descricao" value="<?php echo $editar["descricao"] ?? ''; ?>" required>
+                    </div>
+                    <div class="organForm">
+                        <label>Preço</label>
+                        <input type="number" step="0.01" name="preco" value="<?php echo $editar["preco"] ?? ''; ?>" required>
+                    </div>
+                    <!-- Benefícios ocupa a largura inteira das duas colunas -->
+                    <div class="organForm" style="grid-column: 1 / -1;">
+                        <label>Benefícios</label>
+                        <input type="text" name="beneficios" value="<?php echo $editar["beneficios"] ?? ''; ?>" required style="width: 100%;">
+                    </div>
+
+                    <div class="acoes-form">
+                        <button type="submit">Salvar Edição</button>
+                        <a href="pacotes.php">Cancelar</a>
+                    </div>
                 </form>
-                <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
-                <form action="../relatorios/gerarPDF.php" method="get">
-                    <input type="hidden" name="tipo" value="pacotes">
-                    <button type="submit">Relatório de Pacotes</button>
-                </form>
+            <?php } ?>
+                
                 <hr>
                 <div class="gerenciar">
                     <h1>Lista de Pacotes</h1>
                     <!--Aqui colocar uma lista dos pacotes já cadastrados e um método de pesquisa-->
-                    <!-- Pesquisa de clientes -->
+                    <!-- Pesquisa de pacotes -->
                     <form method="get">
                         <input type="text" name="buscar" placeholder="Pesquisar pelo nome">
                         <button type="submit">Pesquisar</button>
+                    </form>
+
+                    <!--Esse botão vai ser responsável por gerar o PDF da página cliente-->
+                    <form action="../relatorios/gerarPDF.php" method="get" class="formPDF">
+                        <input type="hidden" name="tipo" value="pacotes">
+                        <button type="submit">Relatório de Pacotes</button>
                     </form>
 
                     <!-- Tabela de pacotes -->
