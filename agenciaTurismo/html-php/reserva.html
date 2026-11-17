@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Cliente</title>
+        <link rel="stylesheet" href="../CSS/stylesheet.css">
+        <link rel="stylesheet" href="../CSS/styleForm.css">
+    </head>
+    <body>
+        <!--Topo do site-->
+        <div class="topo">
+           <h1>Agência de Turismo</h1>
+            <div class="usuario">
+                <h4>Funcionário</h4>
+                <img src="../Icones/person-circle.svg" alt="user">
+            </div>
+        </div>
+        <div id="main">
+            <!--Lateral do site-->
+            <div class="lado">
+                <img src="../Icones/grid-fill.svg" alt="grid"><a href="main.html">Menu</a><br><br>
+                <img src="../Icones/person-fill.svg" alt="person"><a href="cliente.html">Clientes</a><br><br>
+                <img src="../Icones/airplane-fill.svg" alt="airplane"><a href="viagem.html">Viagens</a><br><br>
+                <img src="../Icones/suitcase2-fill.svg" alt="suitcase"><a href="pacotes.html">Pacotes</a><br><br>
+                <img src="../Icones/calendar-check.svg" alt="calendar"><a href="reserva.html">Reservas</a><br><br>
+                <img src="../Icones/currency-dollar.svg" alt="money"><a href="pagar.html">Pagamentos</a><br><br>
+                <img src="../Icones/clipboard-fill.svg" alt="clipboard"><a href="relatorios.html">Relatórios</a>
+            </div>
+            <div class="meioForm">
+                <h1>Realizar Reserva</h1>
+                <!--Formulário-->
+                <form method="post" class="cadastrar">
+                    <div class="organForm">
+                        <label>ID Cliente</label>
+                        <input type="number" name="idCliente">
+                    </div>
+                    <div class="organForm">
+                        <label>ID Pacote</label>
+                        <input type="number" name="idPacote">
+                    </div>
+                    <div class="organForm">
+                        <label>Data da Reserva</label>
+                        <input type="date" name="dataReserva">
+                    </div>
+                    <div class="organForm">
+                        <label>Status da Reserva</label>
+                        <input type="text" name="statusReserva">
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+                <hr>
+                <div class="gerenciar">
+                    <h1>Reservas Feitas</h1>
+                    <!--Aqui colocar uma lista das reservas já feitas e um método de pesquisa-->
+                </div>
+            </div>
+        </div>
+        <!--Rodapé-->
+        <div class="rodape">
+            <p>Site realizado para o projeto proposto na disciplina de Desenvolvimento Web II</p>
+        </div>
+    </body>
+</html>
