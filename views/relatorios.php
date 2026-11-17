@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Cliente</title>
+        <link rel="stylesheet" href="../css/stylesheet.css">
+        <link rel="stylesheet" href="../css/styleRelatorio.css">
+    </head>
+    <body>
+        <!--Topo do site-->
+        <div class="topo">
+            <h1>Agência de Turismo</h1>
+            <div class="usuario">
+                <h4>Funcionário</h4>
+                <img src="../Icones/person-circle.svg" alt="user">
+            </div>
+        </div>
+        <div id="main">
+            <!--Lateral do site-->
+            <?php include 'lateralsite.php'; ?>
+            <div class="meioRelatorio">
+                <div class="cadastrar">
+                    <h1>Relatórios</h1>
+                    <!--Tabela-->
+                    <table class="tabelaRelatorio">
+                        <thead>
+                            <tr>
+                                <th>ID Viagens</th>
+                                <th>Destino</th>
+                                <th>Data Ida</th>
+                                <th>Data Volta</th>
+                                <th>Quantidade Passageiros</th>
+                                <th>Total de Lucro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <!--Aqui os dados devem ser exibidos toda vez que forem adicionados-->
+                                <!--Como cada página também tem uma espécie de relatório, eu não sei muito bem se essa página é necessaria-->
+                                <!--Caso você também achar essa página um pouco desnecessária ou que é melhor muda me avisa-->
+                                <td>a</td><!--ID Viagens-->
+                                <td>a</td><!--Destino-->
+                                <td>a</td><!--Data Ida-->
+                                <td>a</td><!--Data Volta-->
+                                <td>a</td><!--Quantidade Passageiros-->
+                                <td>a</td><!--Total de Lucro-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--Rodapé-->
+        <div class="rodape">
+            <p>Site realizado para o projeto proposto na disciplina de Desenvolvimento Web II</p>
+        </div>
+    </body>
+</html>
