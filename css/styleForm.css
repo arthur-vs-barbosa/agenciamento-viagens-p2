@@ -1,0 +1,97 @@
+.meioForm{
+    border: 1px solid #dfdfdf;
+    border-radius: 10px;
+    margin: 30px 100px;
+    flex: 1;
+    padding: 20px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+}
+
+.meioForm h1{
+    display: flex;
+    justify-content: center;
+    padding: 5px 20px 50px;
+}
+
+.cadastrar{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.organForm{
+    display: flex;
+    flex-direction: column;
+}
+.organForm label{
+    margin-bottom: 5px;
+    color: #292929;
+}
+
+.organForm input{
+    height: 40px;
+    width: 90%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+    background: #fcfcfc;
+}
+
+hr{
+    border: 1px solid #dfdfdf;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+/*Botão geral*/
+button{
+    height: 40px;
+    width: 110px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 0;
+    color: #ffffff;
+    background: #3cc4b2;
+}
+/*Botão salvar/cadastrar*/
+.cadastrar button{grid-column: 1;}
+
+/*Botão PDF*/
+.relatorioForm button{margin-top: 10px;}
+
+/*Pesquisa*/
+.gerenciar input{
+    height: 40px;
+    width: 40%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+    background: #fcfcfc;
+}
+
+/*Tabelas*/
+.gerenciar table{
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+.gerenciar th{
+    text-align: center;
+    padding: 10px 0px;
+    color: #ffffff;
+    border: 1px solid #3cc4b2;
+    background: #3cc4b2;
+}
+.gerenciar td{
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #dfdfdf;
+    background: #fcfcfc
+}
+.gerenciar a{
+    font-weight: bold;
+    color: #3cc4b2;
+}
