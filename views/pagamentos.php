@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cliente</title>
+        <title>Pagamentos</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/styleForm.css">
     </head>
@@ -31,11 +31,11 @@
                         
                         <div class="organForm">
                             <label>ID da Reserva</label>
-                            <input type="number" name="idReserva" required>
+                            <input type="number" name="idReserva" placeholder="ID da reserva associada" required>
                         </div>
                         <div class="organForm">
                             <label>Valor</label>
-                            <input type="number" step="0.01" name="valor" required>
+                            <input type="number" step="0.01" name="valor" placeholder="Ex: 540,00" required>
                         </div>
                         <div class="organForm">
                             <label>Forma de Pagamento</label>
@@ -95,10 +95,14 @@
                         <input type="hidden" name="tipo" value="pagamentos">
                         <button type="submit">Relatório de Pagamentos</button>
                     </form>
-                    <!--Aqui colocar uma lista dos pagamentos já registrados e um método de pesquisa-->
+
+                    <!--Método de pesquisa por ID-->
                     <form method="get">
-                        <input type="text" name="buscar" placeholder="Pesquisar pelo ID">
+                        <input type="text" name="buscar" placeholder="Pesquisar pelo ID" value="<?php echo htmlspecialchars($busca ?? ''); ?>">
                         <button type="submit">Pesquisar</button>
+                        <?php if(!empty($busca)) { ?>
+                            <a href="pagamentos.php" style="margin-left: 10px;">Limpar Filtro</a>
+                        <?php } ?>
                     </form>
 
                     <!-- Tabela de pagamentos -->

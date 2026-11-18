@@ -1,10 +1,11 @@
+<!--!!SITE FEITO POR ARTHUR VINICIUS DE SOUZA BARBOSA E ROBERTA MENDES FERNANDES!!-->
 <?php include '../sql/crudClientes.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cliente</title>
+        <title>Clientes</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/styleForm.css">
     </head>
@@ -32,19 +33,19 @@
                         
                         <div class="organForm">
                             <label>Nome</label>
-                            <input type="text" name="nome" required>
+                            <input type="text" name="nome" placeholder="Ex: Rubem Nero Gomes Xavier" required>
                         </div>
                         <div class="organForm">
                             <label>CPF</label>
-                            <input type="number" name="cpf" maxlength="11" required>
+                            <input type="number" name="cpf" maxlength="11" placeholder="Ex: 12345678901" required>
                         </div>
                         <div class="organForm">
                             <label>Email</label>
-                            <input type="email" name="email" required>
+                            <input type="email" name="email" placeholder="Ex: rubem.xavier@email.com" required>
                         </div>
                         <div class="organForm">
                             <label>Celular</label>
-                            <input type="tel" name="telefone" required>
+                            <input type="tel" name="telefone" placeholder="Ex: 912345678" required>
                         </div>
                         <button type="submit">Cadastrar</button>
                     </form>

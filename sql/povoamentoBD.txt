@@ -72,3 +72,8 @@ INSERT INTO `pagamento` (`id`, `idReserva`, `valor`, `formaPagamento`, `statusPa
 
 -- Reativa a verificação de chaves estrangeiras
 SET FOREIGN_KEY_CHECKS = 1;
+
+UPDATE cliente
+SET nome = 'Gabriel Rocho',
+    email='gabriel.rocho@email.com'
+WHERE id = 7;

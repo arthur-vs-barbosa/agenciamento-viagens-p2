@@ -29,7 +29,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cliente</title>
+        <title>Relatórios</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/styleRelatorio.css">
     </head>

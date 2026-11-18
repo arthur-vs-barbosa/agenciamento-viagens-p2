@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cliente</title>
+        <title>Reserva</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/styleForm.css">
     </head>
@@ -30,11 +30,11 @@
                         
                         <div class="organForm">
                             <label>ID do Cliente</label>
-                            <input type="number" name="idCliente" required>
+                            <input type="number" name="idCliente" placeholder="ID do Cliente associado a reserva" required>
                         </div>
                         <div class="organForm">
                             <label>ID do Pacote</label>
-                            <input type="number" name="idPacote" required>
+                            <input type="number" name="idPacote" placeholder="ID do Pacote associado a reserva" required>
                         </div>
                         <div class="organForm">
                             <label>Data da Reserva</label>

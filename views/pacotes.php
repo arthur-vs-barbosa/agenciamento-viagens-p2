@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cliente</title>
+        <title>Pacotes</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/styleForm.css">
     </head>
@@ -30,24 +30,24 @@
                     
                     <div class="organForm">
                         <label>ID Viagem</label>
-                        <input type="number" name="idViagem" required>
+                        <input type="number" name="idViagem" placeholder="ID da viagem associada" required>
                     </div>
                     <div class="organForm">
                         <label>Nome</label>
-                        <input type="text" name="nome" required>
+                        <input type="text" name="nome" placeholder="Ex: Pacote turístico para Mimami na Flórida" required>
                     </div>
                     <div class="organForm">
                         <label>Descrição</label>
-                        <input type="text" name="descricao" required>
+                        <input type="text" name="descricao" placeholder="Ex: Um pacote turístico pra Miami com ótimos benefícios" required>
                     </div>
                     <div class="organForm">
                         <label>Preço</label>
-                        <input type="number" step="0.01" name="preco" required>
+                        <input type="number" step="0.01" name="preco" placeholder="Ex: 999,99" required>
                     </div>
                     <!-- Benefícios ocupa a largura inteira das duas colunas... é, dá p fz style sem o arquivo css-->
                     <div class="organForm" style="grid-column: 1 / -1;">
                         <label>Benefícios</label>
-                        <input type="text" name="beneficios" required style="width: 100%;">
+                        <input type="text" name="beneficios" placeholder="Ex: Café da manhã e Almoço incluso, guia de turismo" required style="width: 100%;">
                     </div>
 
                     <div class="acoes-form">

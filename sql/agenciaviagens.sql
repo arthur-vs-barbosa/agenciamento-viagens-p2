@@ -59,7 +59,7 @@ CREATE TABLE `pacote` (
 CREATE TABLE `pagamento` (
   `id` int(11) NOT NULL,
   `idReserva` int(11) NOT NULL,
-  `valor` double NOT NULL,
+  `valor` decimal(10,2) NOT NULL DEFAULT 0.00,
   `formaPagamento` varchar(20) NOT NULL,
   `statusPagamento` varchar(20) NOT NULL,
   `dataPagamento` date NOT NULL
@@ -191,7 +191,6 @@ ALTER TABLE `reserva`
   ADD CONSTRAINT `fk_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`id`),
   ADD CONSTRAINT `fk_idPacote` FOREIGN KEY (`idPacote`) REFERENCES `pacote` (`id`);
 COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

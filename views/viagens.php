@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Cliente</title>
+        <title>Viagens</title>
         <link rel="stylesheet" href="../css/stylesheet.css">
         <link rel="stylesheet" href="../css/styleForm.css">
     </head>
@@ -30,7 +30,7 @@
                         
                         <div class="organForm" style="grid-column: 1 / -1;">
                             <label>Destino</label>
-                            <input type="text" name="destino" required style="width: 100%;">
+                            <input type="text" name="destino" placeholder="Ex: Miami, Flórida" required style="width: 100%;">
                         </div>
                         <div class="organForm">
                             <label>Data de Ida</label>
@@ -42,11 +42,11 @@
                         </div>
                         <div class="organForm">
                             <label>Preço Base</label>
-                            <input type="number" step="0.01" name="precoBase" required>
+                            <input type="number" step="0.01" placeholder="Ex: 350,00" name="precoBase" required>
                         </div>
                         <div class="organForm">
                             <label>Vagas</label>
-                            <input type="number" name="vagas" required>
+                            <input type="number" name="vagas" placeholder="Ex: 50" required>
                         </div>
                         <button type="submit">Cadastrar</button>
                     </form>

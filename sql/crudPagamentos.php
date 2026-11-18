@@ -62,10 +62,18 @@
     // 5. LISTAR PAGAMENTOS (Com JOIN opcional para mostrar informações da Reserva/Cliente se precisar)
     $busca = $_GET["buscar"] ?? "";
 
-    $sql = "SELECT pagamento.*, reserva.id AS codigoReserva 
-            FROM pagamento
-            JOIN reserva ON pagamento.idReserva = reserva.id
-            ORDER BY pagamento.id DESC";
+    if(!empty($busca)){
+        $sql = "SELECT pagamento.*, reserva.id AS codigoReserva 
+                FROM pagamento
+                LEFT JOIN reserva ON pagamento.idReserva = reserva.id
+                WHERE pagamento.id = '$busca'
+                ORDER BY pagamento.id DESC";
+    } else {
+        $sql = "SELECT pagamento.*, reserva.id AS codigoReserva 
+                FROM pagamento
+                LEFT JOIN reserva ON pagamento.idReserva = reserva.id
+                ORDER BY pagamento.id DESC";
+    }
 
     $resultado = $conexao->query($sql);
 ?>
