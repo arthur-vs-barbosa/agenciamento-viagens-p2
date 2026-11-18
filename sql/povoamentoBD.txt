@@ -68,7 +68,11 @@ INSERT INTO `pagamento` (`id`, `idReserva`, `valor`, `formaPagamento`, `statusPa
 (5, 7, 8200.00, 'Boleto', 'Pago', '2026-11-15'),
 (6, 9, 9800.00, 'Cartão de Crédito', 'Pago', '2026-11-16'),
 (7, 11, 2600.00, 'Pix', 'Pago', '2026-11-17'),
-(8, 12, 2100.00, 'Cartão de Crédito', 'Pago', '2026-11-18');
+(8, 8, 12, 2100.00, 'Cartão de Crédito', 'Pago', '2026-11-18'),
+(9, 2, 1500.00, 'Boleto', 'Pendente', '2026-11-19'),
+(10, 6, 3200.00, 'Pix', 'Pendente', '2026-11-19'),
+(11, 8, 4100.00, 'Cartão de Crédito', 'Pendente', '2026-11-19'),
+(12, 10, 2500.00, 'Boleto', 'Pendente', '2026-11-19');
 
 -- Reativa a verificação de chaves estrangeiras
 SET FOREIGN_KEY_CHECKS = 1;
